@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
+use App\Http\Resources\UserResource;
 use App\Models\User;
+use App\Services\AuthService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class AuthController extends Controller
 {
@@ -29,12 +32,9 @@ class AuthController extends Controller
         ]);
     }
 
-    public function register(RegisterRequest $request): JsonResponse
-    {
-
-        dd($request);
-        return response()->json([
-            'message'=>'Successfully Registered!'
-        ]);
+    public function register(RegisterRequest $request, AuthService $authService): User
+    {   
+        $user = $authService->create($request);
+        return $user;
     }
 }
