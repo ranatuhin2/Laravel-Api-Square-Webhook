@@ -17,7 +17,7 @@ class PostResource extends JsonResource
         return parent::toArray($request);
     }
 
-    public $relations =[
-        'user' => UserResource::class
+    public $relations = [
+        'user' => UserResource::class,
     ];
 }

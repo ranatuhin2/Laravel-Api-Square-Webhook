@@ -5,9 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Illuminate\Http\Resources\Json\ResourceCollection;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class UserController extends Controller
@@ -18,8 +16,7 @@ class UserController extends Controller
             ->allowedFilters('name')
             ->allowedIncludes('posts')
             ->get();
+
         return UserResource::collection($users);
     }
 }
-
-

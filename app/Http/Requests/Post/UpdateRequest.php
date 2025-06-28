@@ -23,7 +23,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title' => 'sometimes|unique:posts',
-            'description' => 'sometimes'
+            'description' => 'sometimes',
         ];
     }
 }

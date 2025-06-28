@@ -24,7 +24,7 @@ class CreateRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:posts|max:255',
-            'user_id' => Rule::exists('users','id'),
+            'user_id' => Rule::exists('users', 'id'),
             'description' => 'required',
 
         ];
