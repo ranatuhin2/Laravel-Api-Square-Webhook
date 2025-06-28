@@ -16,3 +16,4 @@ Route::middleware('auth:api')->prefix('users')->group(function () {
     Route::get('/',[UserController::class, 'index'])->name('users.lists');
 
 });
+
