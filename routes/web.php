@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('ngrok-test', function () {
-    echo 'Ngrok is Working Properly!';
+Route::get('pay', function () {
+    return view('pay');
 });

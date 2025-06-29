@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Post\PostController;
+use App\Http\Controllers\SquareController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
+use Spatie\WebhookClient\WebhookClientServiceProvider;
 
 Route::post('login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register']);
@@ -22,3 +24,7 @@ Route::middleware('auth:api')->group(function () {
     });
 
 });
+
+
+Route::post('payment', [SquareController::class, 'payment']);
+Route::webhooks('webhook/square');

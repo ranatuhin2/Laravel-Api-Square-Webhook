@@ -35,4 +35,12 @@ return [
         ],
     ],
 
+    'square' => [
+        'token' => env('SQUARE_TOKEN'),
+        'env' => env('SQUARE_ENV'),
+        'location' => env('SQUARE_LOCATION_ID'),
+        'app_id' => env('SQUARE_APP_ID'),
+        'webhook_secret' => env('SQUARE_WEBHOOK_SIGNATURE_KEY')
+    ]
+
 ];
