@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Square\Payments\Requests\CreatePaymentRequest;
 use Square\SquareClient;
 use Square\Types\Money;
-use Hidehalo\Nanoid\Client as NanoClient;
+use Facades\Hidehalo\Nanoid\Client as NanoClient;
 use Square\Environments;
 use Square\Types\Currency;
 
@@ -14,7 +14,6 @@ class SquareController extends Controller
 {
     public function payment(Request $request)
     {
-        $nanoId = new NanoClient();
         /* Square Payment Initiating => Using WebHook */
         $request->validate([
             // 'invoice_id' => 'required|exists:invoices,id', => Build later
@@ -28,7 +27,7 @@ class SquareController extends Controller
 
         
         $paymentRequest = new CreatePaymentRequest([
-            'idempotencyKey' => $nanoId->generateId($size = 21), 
+            'idempotencyKey' => NanoClient::generateId($size = 21), 
             'sourceId' => $request->nonce,
             'amountMoney' => new Money([
                 'amount' => 100,
